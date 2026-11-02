@@ -10,7 +10,6 @@ local.yml
 build/
 app/build/
 **/build/
-gradle-wrapper.jar
 
 # ─── NDK ─────────────────────────────────────────────────
 .cxx/
