@@ -1,0 +1,58 @@
+# ─── Local ───────────────────────────────────────────────
+*.DS_Store
+.idea/
+*.iml
+local.properties
+local.yml
+
+# ─── Gradle ──────────────────────────────────────────────
+.gradle/
+build/
+app/build/
+**/build/
+gradle-wrapper.jar
+
+# ─── NDK ─────────────────────────────────────────────────
+.cxx/
+obj/
+
+# ─── Android / Kotlin ────────────────────────────────────
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.log
+captures/
+*.hprof
+
+# ─── Secrets / Keys ──────────────────────────────────────
+# 不要把 API Key、Keystore 提交进仓库
+*.jks
+*.keystore
+keystore.properties
+google-services.json
+
+# ─── Builds / Outputs ────────────────────────────────────
+app/release/
+# 引入 scheme 变体后，Android Studio"生成签名 APK"按变体输出到这两个目录
+app/global/
+app/scoped/
+
+# Local Gradle user home/cache
+.gradle-home/
+
+# Custom Gradle Home
+.gradle_home/
+
+# ─── Local research only: never publish ──────────────────
+# Binaries extracted from the released APK; this repository is GPL-3.0 and must
+# not redistribute them. Restore locally from your own installation (GLOBAL_SENSOR.md).
+xposed/src/global/jniLibs/
+# Decompiled material derived from those binaries.
+docs/global-sensor/
+handoff.md
+docs/local-build-identity.md
+tools/patch_location_accel.py
+*.so
+.kotlin/

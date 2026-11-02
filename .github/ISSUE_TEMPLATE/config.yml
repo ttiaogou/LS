@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Fork documentation
+    url: https://github.com/yushan1337/LocationSpoofer#readme
+    about: Read this fork's setup and limitations before reporting an issue.
