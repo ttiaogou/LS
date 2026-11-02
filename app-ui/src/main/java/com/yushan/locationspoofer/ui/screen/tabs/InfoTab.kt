@@ -36,22 +36,18 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.yushan.locationspoofer.ui.BuildConfig
 import com.yushan.locationspoofer.ui.R
 import com.yushan.locationspoofer.data.model.AppState
 import com.yushan.locationspoofer.data.model.MapEngine
 import com.yushan.locationspoofer.vendor.VendorProfile
 import com.yushan.locationspoofer.ui.screen.FooterLinks
 import com.yushan.locationspoofer.ui.screen.LANGUAGES
-import com.yushan.locationspoofer.ui.screen.UpdateCheckCard
-import com.yushan.locationspoofer.ui.screen.isNewerVersion
 import com.yushan.locationspoofer.ui.theme.AccentBlue
 import com.yushan.locationspoofer.ui.theme.AccentGreen
 import com.yushan.locationspoofer.ui.theme.AccentOrange
 import com.yushan.locationspoofer.ui.theme.AppColors
 import com.yushan.locationspoofer.ui.theme.noRippleClickable
 import com.yushan.locationspoofer.viewmodel.MainViewModel
-import com.yushan.locationspoofer.viewmodel.UpdateUiState
 import com.yushan.locationspoofer.viewmodel.getSavedLanguage
 import top.yukonga.miuix.kmp.basic.Card as MiuixCard
 
@@ -59,9 +55,7 @@ import top.yukonga.miuix.kmp.basic.Card as MiuixCard
 fun InfoTab(
     viewModel: MainViewModel,
     uiState: AppState,
-    updateUiState: UpdateUiState? = null,
     tabBarHeight: Dp = 90.dp,
-    onNavigateToUpdate: () -> Unit = {},
     onNavigateToLanguage: () -> Unit = {},
     onNavigateToMapEngine: () -> Unit = {},
     onNavigateToSignatureAuth: () -> Unit = {},
@@ -72,16 +66,6 @@ fun InfoTab(
     onNavigateToEnvTokens: () -> Unit = {}
 ) {
     val isDark = isSystemInDarkTheme()
-
-    val currentVersion = BuildConfig.VERSION_NAME
-    val targetReleases = remember(updateUiState?.releases, uiState.checkBetaUpdates) {
-        val list = updateUiState?.releases ?: emptyList()
-        if (uiState.checkBetaUpdates) list else list.filter { !it.isPrerelease }
-    }
-    val latestRelease = targetReleases.firstOrNull()
-    val hasNewVersion = remember(targetReleases) {
-        latestRelease != null && isNewerVersion(latestRelease.versionName, currentVersion)
-    }
 
     // 获取当前生效的语言名称
     val defaultLangText = stringResource(R.string.default_language)
@@ -185,17 +169,7 @@ fun InfoTab(
                 }
             }
 
-            // 1. 软件更新卡片
-            item {
-                UpdateCheckCard(
-                    isDark = isDark,
-                    hasNewVersion = hasNewVersion,
-                    newVersionName = if (hasNewVersion) latestRelease?.versionName else null,
-                    onCheckClick = onNavigateToUpdate
-                )
-            }
-
-            // 2. 设置聚合卡片：原来的 6 个"软件配置"区块拆开后，各自独立成页，
+            // 1. 设置聚合卡片：原来的 6 个"软件配置"区块拆开后，各自独立成页，
             // 这里收进一个紧凑列表，避免变成 6 个各自占一屏高度的大卡片。
             item {
                 MiuixCard(
@@ -267,7 +241,7 @@ fun InfoTab(
                 }
             }
 
-            // 3. 底部开源协议与项目链接
+            // 2. 底部开源协议与项目链接
             item {
                 Spacer(Modifier.height(6.dp))
                 FooterLinks(isDark = isDark)
