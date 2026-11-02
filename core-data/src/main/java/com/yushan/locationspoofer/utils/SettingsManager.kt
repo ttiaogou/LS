@@ -85,14 +85,6 @@ class SettingsManager(context: Context) {
         get() = prefs.getBoolean("debug_dump_system_services", false)
         set(value) = prefs.edit().putBoolean("debug_dump_system_services", value).apply()
 
-    var ignoredVersion: String
-        get() = prefs.getString("ignored_version", "") ?: ""
-        set(value) = prefs.edit().putString("ignored_version", value).apply()
-
-    var checkBetaUpdates: Boolean
-        get() = prefs.getBoolean("check_beta_updates", false)
-        set(value) = prefs.edit().putBoolean("check_beta_updates", value).apply()
-
     var isSpoofingActive: Boolean
         get() = prefs.getBoolean("is_spoofing_active", false)
         set(value) = prefs.edit().putBoolean("is_spoofing_active", value).apply()
