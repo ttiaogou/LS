@@ -67,8 +67,7 @@ internal fun MainViewModel.initialize() {
                 amapApiKey = settingsRepository.getAmapApiKey(),
                 baiduApiKey = settingsRepository.getBaiduApiKey(),
                 googleApiKey = settingsRepository.getGoogleApiKey(),
-                appSha1 = getAppSignatureSHA1(),
-                checkBetaUpdates = settingsRepository.checkBetaUpdates
+                appSha1 = getAppSignatureSHA1()
             )
         }
         if (restoredPosition == null) {
@@ -613,17 +612,6 @@ internal fun MainViewModel.removeAppCoordinateSystem(pkg: String) {
             locationRepository.patchConfig { it.put("app_coordinate_systems", org.json.JSONObject(currentMap)) }
         }
     }
-}
-
-internal fun MainViewModel.getIgnoredVersion(): String = settingsRepository.getIgnoredVersion()
-
-internal fun MainViewModel.setIgnoredVersion(version: String) {
-    settingsRepository.setIgnoredVersion(version)
-}
-
-internal fun MainViewModel.setCheckBetaUpdates(enabled: Boolean) {
-    settingsRepository.checkBetaUpdates = enabled
-    _uiState.update { it.copy(checkBetaUpdates = enabled) }
 }
 
 internal fun MainViewModel.handleSpoofingIntent(intent: SpoofingIntent) {
