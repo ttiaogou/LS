@@ -67,7 +67,6 @@ import com.amap.api.services.poisearch.PoiSearch
 import androidx.compose.ui.res.stringResource
 import com.yushan.locationspoofer.ui.R
 import com.yushan.locationspoofer.data.model.AppState
-import com.yushan.locationspoofer.data.model.GithubRelease
 import com.yushan.locationspoofer.data.model.SavedLocation
 import com.yushan.locationspoofer.data.model.WifiLoadStatus
 import com.yushan.locationspoofer.ui.components.AppMapView
