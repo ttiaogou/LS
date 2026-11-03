@@ -199,8 +199,8 @@
     <string name="copy">Copy</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="restart_required_hint">Changes to the API Key require restarting the app to take full effect.</string>
-    <string name="check_updates">Check for Updates</string>
-    <string name="check_updates_desc">Get latest version from GitHub</string>
+    
+    
     <string name="update_dialog_title">Version Updates</string>
     <string name="download">Download</string>
     <string name="install">Install</string>
@@ -361,30 +361,21 @@
     <string name="real_road_matching">Real Road Matching</string>
     <string name="real_road_matching_desc">Snap to actual city driving roads automatically</string>
     <string name="start_route_simulation">Start Route Simulation</string>
-    <string name="software_update">Software Update</string>
-    <string name="software_update_desc">Check and get latest releases and improvements</string>
-    <string name="check_beta_channel_title">Receive Beta Updates</string>
-    <string name="check_beta_channel_desc">Check and receive the latest Beta releases</string>
     <string name="prerelease_badge">Beta</string>
     <string name="changelog">Changelog</string>
     <string name="version_history">Version History</string>
-    <string name="checking_latest_release">Checking server for latest release...</string>
     <string name="check_failed_network">Check failed, please check network connection</string>
     <string name="new_version_found_format">New version v%s found</string>
     <string name="already_latest_version">Already on the latest version</string>
-    <string name="install_new_version">Install New Version</string>
     <string name="downloading_progress">Downloading update (%d%%)</string>
     <string name="update_now_64">Update Now (64-bit)</string>
-    <string name="update_now">Update Now</string>
     <string name="download_32_compat">32-bit Compatibility Package</string>
     <string name="recheck">Check Again</string>
     <string name="merged_count_badge">Merged %d updates</string>
     <string name="download_64">Download (64-bit)</string>
     <string name="download_32">Download 32-bit</string>
-    <string name="new_version_found">New Version Found</string>
     <string name="new_version_prompt_desc">A new version is available. It is recommended to update for new features and optimizations.</string>
     <string name="later">Later</string>
-    <string name="go_to_update">Go to Update</string>
     <string name="tab_all">All</string>
     <string name="tab_customized">Customized</string>
     <string name="tab_user_apps">User Apps</string>
